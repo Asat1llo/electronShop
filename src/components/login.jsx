@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Lock, AlertCircle, CheckCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const  LoginPage =() =>{
   const [username, setUsername] = useState('');
@@ -8,6 +8,7 @@ const  LoginPage =() =>{
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
+  const navigate = useNavigate();
   const handleLogin = () => {
     setError('');
     setSuccess('');
@@ -19,9 +20,7 @@ const  LoginPage =() =>{
 
     if (username === 'user1' && password === 'passwd123!') {
       setSuccess('Muvaffaqiyatli kirdingiz! Xush kelibsiz!');
-      setTimeout(() => {
-        alert('Login muvaffaqiyatli!');
-      }, 500);
+      navigate('/market');
     } else {
       setError('Login yoki parol noto\'g\'ri!');
     }
@@ -128,14 +127,12 @@ const  LoginPage =() =>{
           </div>
 
           {/* Login Button */}
-          <Link to="/market">
           <button
             onClick={handleLogin}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3.5 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg"
             >
             Login
           </button>
-            </Link>
 
           {/* Forgot Password */}
           <a

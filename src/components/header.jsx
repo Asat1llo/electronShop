@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { FaSearch,FaHeart,FaShoppingCart,FaMapMarkedAlt } from 'react-icons/fa'
 import { IoPerson } from 'react-icons/io5'
-import { Link } from 'react-scroll'
+import { Link as Linkd } from 'react-scroll'
+import { Link } from 'react-router-dom'
 import { FaXmark,FaBars,FaPhoneVolume } from 'react-icons/fa6'
 import { MdEmail } from 'react-icons/md'
 import AOS, { init } from 'aos'
@@ -66,11 +67,11 @@ const Header = () => {
       <ul className='lg:flex justify-center items-center gap-10 hidden'>
         {
           navItems.map(({link,path})=>(
-            <Link key={path} className='text-bl
+            <Linkd key={path}  className='text-bl
              text-sm uppercase font-semibold cursor-pointer px-4 py-2 rounded-lg hover:bg-themepurple hover:text-white 
              ' to={path} spy={true} offse={-100} smooth={true}>
               {link}
-            </Link>
+            </Linkd>
           ))
 
         }
@@ -79,7 +80,9 @@ const Header = () => {
 
       <div id='header-icons' className='lg:flex hidden justify-center items-center gap-6 text-black'>
         <FaSearch className='w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple'/>
+        <Link to="/">
         <IoPerson className='w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple'/>
+        </Link>
         <FaHeart className='w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple'/>
         <div className='relative'>
         <FaShoppingCart className='w-[20px] h-[20px] transform hover:scale-125 transition-transform duration-300 cursor-pointer hover:text-themepurple'/>
